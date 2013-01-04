@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Bender</id>
+    <version>1.0.12.0</version>
+    <title>Bender</title>
+    <authors>Mike O'Brien</authors>
+    <owners>Mike O'Brien</owners>
+    <licenseUrl>https://github.com/mikeobrien/Bender/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/mikeobrien/Bender</projectUrl>
+    <iconUrl>https://github.com/mikeobrien/Bender/raw/master/misc/logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Xml De/Serialization for .NET</description>
+    <summary>Xml De/Serialization for .NET</summary>
+    <language>en-US</language>
+    <tags>xml serialization deserialization deserializer serializer</tags>
+    <references>
+      <reference file="Bender.dll" />
+    </references>
+  </metadata>
+</package>
