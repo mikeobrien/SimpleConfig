@@ -3,14 +3,14 @@ using Bender;
 
 namespace SimpleConfig
 {
-    public interface IConfiguration<T>
+    public interface IConfiguration
     {
-        T Load(string sectionName = null);
+        T Load<T>(string sectionName = null);
     }
 
-    public class Configuration<T> : IConfiguration<T>
+    public class Configuration : IConfiguration
     {
-        public T Load(string sectionName = null)
+        public T Load<T>(string sectionName = null)
         {
             return Deserializer.Create(x => x.IgnoreCase()).Deserialize<T>(
                 ((Section)ConfigurationManager.GetSection(sectionName ?? typeof(T).Name.ToCamelCase())).Element);
