@@ -47,7 +47,7 @@ Next you need to register the SimpleConfig section handler in your `web/app.conf
 Now you can load the section:
 
 ```csharp
-var config = new SimpleConfig.Configuration().Load<Application>();
+var config = new SimpleConfig.Configuration().Load<MyApplication>();
 config.Build.Date.ShouldEqual(DateTime.Parse("10/25/1985"));
 config.Build.DeployTarget.ShouldEqual(Target.Dev);
 config.Build.Version.ShouldEqual("0.0.0.0");
@@ -56,7 +56,7 @@ config.Build.Version.ShouldEqual("0.0.0.0");
 If you want to override the default section name convention, you can pass a section name into the `Load()` method like so:
 
 ```csharp
-var config = new SimpleConfig.Configuration().Load<Application>("myapp");
+var config = new SimpleConfig.Configuration().Load<MyApplication>("myapp");
 ```
 
 ```xml
