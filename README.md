@@ -56,7 +56,7 @@ config.Build.DeployTarget.ShouldEqual(Target.Dev);
 config.Build.Version.ShouldEqual("0.0.0.0");
 ```
 
-If you want to override the default section name convention, you can pass a section name into the `Load()` method like so:
+If you want to override the default section name convention, you can pass a section name into the `Load()` or `LoadSection()` methods like so:
 
 ```csharp
 var config = SimpleConfig.Configuration.Load<MyApplication>("myapp");
