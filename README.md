@@ -1,7 +1,7 @@
 SimpleConfig
 =============
 
-SimpleConfig makes custom configuration in .NET much easier. Instead of wiring up and loading custom sections via the heavy and complicated API under the `System.Configuration` namespace, SimpleConfig allows you to load the section directly into a POCO graph via xml deserialization.
+SimpleConfig makes custom configuration in .NET much easier. Instead of wiring up and loading custom sections via the heavy and complicated API under the `System.Configuration` namespace, SimpleConfig allows you to load the section directly into a POCO graph via xml deserialization (You can override this as well).
 
 Install
 ------------
@@ -57,6 +57,15 @@ If you want to override the default section name convention, you can pass a sect
 
 ```csharp
 var config = new SimpleConfig.Configuration().Load<Application>("myapp");
+```
+
+```xml
+<configuration>
+  ...
+  <myapp>
+    ...
+  </myapp>
+</configuration>
 ```
 
 SimpleConfig also supports the `XmlElementAttribute` so you can also override the element name:
