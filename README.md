@@ -70,7 +70,7 @@ var config = new SimpleConfig.Configuration().Load<MyApplication>("myapp");
 </configuration>
 ```
 
-SimpleConfig also supports the `XmlElementAttribute` so you can also override the element name:
+SimpleConfig also supports `XmlTypeAttribute` and `XmlElementAttribute` so you can also override the element and type names:
 
 ```csharp
 ...
@@ -79,7 +79,11 @@ public class Build
     ...
     [XmlElement("target")]
     public Target DeployTarget { get; set; }
+    public List<Dependency> Dependencies { get; set; }
 }
+
+[XmlType("dependency")]
+public class BuildDependency { ... }
 ```
 
 ```xml
@@ -87,6 +91,10 @@ public class Build
   ...
   <myApplication>
     <build ... target="Dev"/>
+    <dependencies>
+        <dependency>...</dependency>
+        <dependency>...</dependency>
+    </dependencies>
   </myApplication>
 </configuration>
 ```
