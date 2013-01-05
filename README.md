@@ -6,7 +6,7 @@ SimpleConfig makes custom configuration in .NET much easier. Instead of wiring u
 Install
 ------------
 
-Bender can be found on nuget:
+SimpleConfig can be found on nuget:
 
     PM> Install-Package SimpleConfig
 
