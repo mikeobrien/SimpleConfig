@@ -61,7 +61,9 @@ var config = new SimpleConfig.Configuration().Load<Application>("myapp");
 
 ```xml
 <configuration>
-  ...
+  <configSections>
+    <section name="myapp" .../>
+  </configSections>
   <myapp>
     ...
   </myapp>
