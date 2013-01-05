@@ -1,7 +1,7 @@
 SimpleConfig
 =============
 
-SimpleConfig makes custom configuration in .NET much easier. Instead of wiring up and loading custom sections via the heavy and complicated API under the `System.Configuration` namespace, SimpleConfig allows you to load the section directly into a POCO graph via xml deserialization (You can override this as well).
+SimpleConfig makes custom configuration in .NET much easier. Instead of wiring up and loading custom sections via the heavy and complicated API under the `System.Configuration` namespace, SimpleConfig allows you to load the section directly into a POCO graph via xml deserialization.
 
 Install
 ------------
@@ -31,7 +31,7 @@ public class Build
 }
 ```
 
-Next you need to register the SimpleConfig section handler in your `web/app.config` and create your configuration section as shown below. The default convention for the section name is the camel cased name of the root configuration type (Although you can override this as we'll see later). The section name under `configSections` must match the section element name. All other element and attribute names in the configuration section are case insensitive but must otherwise match the property names of your configuration types.
+Next you need to register the SimpleConfig section handler in your `web/app.config` and create your configuration section as shown below. The default convention for the section name is the camel cased name of the root configuration type (Although you can override this as we'll see later). The section name under `configSections` must match the section element name. All other element and attribute names in the configuration section are case insensitive but must otherwise match the property names of your configuration types (You can override this as well).
 
 ```xml
 <configuration>
