@@ -1,7 +1,7 @@
 SimpleConfig
 =============
 
-SimpleConfig is a simpler way to handle configuration in .NET. Instead if loading custom sections via the heavy and complex API under the `System.Configuration` namespace, SimpleConfig deserializes the section directly into a POCO graph.
+SimpleConfig is a simpler way to handle configuration in .NET. Instead if loading and wiring up custom sections via the heavy and complicated API under the `System.Configuration` namespace, SimpleConfig allows you to load the section directly into a POCO graph via xml deserialization.
 
 Install
 ------------
