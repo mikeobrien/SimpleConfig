@@ -44,10 +44,13 @@ Next you need to register the SimpleConfig section handler in your `web/app.conf
 </configuration>
 ```
 
-Now you can load the section:
+Now you can load the section either by calling the convenience static method or newing up a new instance:
 
 ```csharp
-var config = new SimpleConfig.Configuration().Load<MyApplication>();
+var config = SimpleConfig.Configuration.Load<MyApplication>();
+// or
+var config = new SimpleConfig.Configuration().LoadSection<MyApplication>();
+
 config.Build.Date.ShouldEqual(DateTime.Parse("10/25/1985"));
 config.Build.DeployTarget.ShouldEqual(Target.Dev);
 config.Build.Version.ShouldEqual("0.0.0.0");
@@ -56,7 +59,7 @@ config.Build.Version.ShouldEqual("0.0.0.0");
 If you want to override the default section name convention, you can pass a section name into the `Load()` method like so:
 
 ```csharp
-var config = new SimpleConfig.Configuration().Load<MyApplication>("myapp");
+var config = SimpleConfig.Configuration.Load<MyApplication>("myapp");
 ```
 
 ```xml
@@ -98,6 +101,16 @@ public class BuildDependency { ... }
   </myApplication>
 </configuration>
 ```
+
+SimpleConfig uses [Bender](/mikeobrien/Bender) for deserialization. Bender configuration can be passed in to customize deserialization. For example, you can specify custom readers to handle the deserialization of certian data types:
+
+```csharp
+var config = new SimpleConfig.Configuration(x => x
+            .AddReader<List<string>>((options, property, node) => node.Value.Split(',').ToList()))
+        .LoadSection<MyApplication>();
+```
+
+Check out the [Bender page](/mikeobrien/Bender) for more details on deserialization configuration.
 
 Props
 ------------
