@@ -92,4 +92,4 @@ public class Build
 Props
 ------------
 
-Thanks to @grummle for the idea. Thanks to [JetBrains](http://www.jetbrains.com/) for providing OSS licenses! 
+Thanks to [@grummle](/grummle) for the idea. Thanks to [JetBrains](http://www.jetbrains.com/) for providing OSS licenses! 
