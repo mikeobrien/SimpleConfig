@@ -56,7 +56,7 @@ config.Build.DeployTarget.ShouldEqual(Target.Dev);
 config.Build.Version.ShouldEqual("0.0.0.0");
 ```
 
-If you want to override the default section name convention, you can pass a section name into the `Load()` or `LoadSection()` methods like so:
+If you want to override the default section name convention, you have two options. First, you can pass a section name into the `Load()` or `LoadSection()` methods like so:
 
 ```csharp
 var config = SimpleConfig.Configuration.Load<MyApplication>("myapp");
@@ -73,16 +73,24 @@ var config = SimpleConfig.Configuration.Load<MyApplication>("myapp");
 </configuration>
 ```
 
+The second option is by applying the XmlTypeAttribute to the root config type as explained next.
+
 SimpleConfig also supports `XmlTypeAttribute` and `XmlElementAttribute` so you can also override the element and type names:
 
 ```csharp
 ...
+[XmlType("myApplication")]
+public class Configuration
+{
+    public Build Build { get; set; }
+    public List<Dependency> Dependencies { get; set; }
+}
+
 public class Build
 {
     ...
     [XmlElement("target")]
     public Target DeployTarget { get; set; }
-    public List<Dependency> Dependencies { get; set; }
 }
 
 [XmlType("dependency")]

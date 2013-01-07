@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Serialization;
 using NUnit.Framework;
 using Should;
 using SimpleConfig;
@@ -38,9 +39,24 @@ namespace Tests
         public void should_load_config_from_named_section()
         {
             var config = new Configuration().LoadSection<Application>("app");
-            config.Build.Date.ShouldEqual(DateTime.Parse("10/25/1985"));
-            config.Build.DeployTarget.ShouldEqual(Target.Dev);
-            config.Build.Version.ShouldEqual("0.0.0.0");
+            config.Build.Date.ShouldEqual(DateTime.Parse("11/26/1986"));
+            config.Build.DeployTarget.ShouldEqual(Target.CI);
+            config.Build.Version.ShouldEqual("1.1.1.1");
+        }
+
+        [XmlType("app")]
+        public class ApplicationWithXmlTypeName
+        {
+            public Build Build { get; set; }
+        }
+
+        [Test]
+        public void should_load_config_from_xml_type_name()
+        {
+            var config = new Configuration().LoadSection<ApplicationWithXmlTypeName>();
+            config.Build.Date.ShouldEqual(DateTime.Parse("11/26/1986"));
+            config.Build.DeployTarget.ShouldEqual(Target.CI);
+            config.Build.Version.ShouldEqual("1.1.1.1");
         }
 
         [Test]

@@ -26,7 +26,7 @@ namespace SimpleConfig
 
         public T LoadSection<T>(string sectionName = null)
         {
-            sectionName = sectionName ?? typeof (T).Name.ToCamelCase();
+            sectionName = sectionName ?? typeof(T).GetXmlTypeName() ?? typeof(T).Name.ToCamelCase();
             var section = ConfigurationManager.GetSection(sectionName);
             if (!(section is Section)) throw new ConfigurationErrorsException(
                 "The configuration section '" + sectionName + 
