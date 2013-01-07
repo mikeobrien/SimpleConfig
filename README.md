@@ -78,7 +78,6 @@ The second option is by applying the XmlTypeAttribute to the root config type as
 SimpleConfig also supports `XmlTypeAttribute` and `XmlElementAttribute` so you can also override the element and type names:
 
 ```csharp
-...
 [XmlType("myApplication")]
 public class Configuration
 {
