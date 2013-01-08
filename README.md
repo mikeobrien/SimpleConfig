@@ -47,9 +47,9 @@ Next you need to register the SimpleConfig section handler in your `web/app.conf
 Now you can load the section either by calling the convenience static method or newing up a new instance:
 
 ```csharp
-var config = SimpleConfig.Configuration.Load<MyApplication>();
+var config = Configuration.Load<MyApplication>();
 // or
-var config = new SimpleConfig.Configuration().LoadSection<MyApplication>();
+var config = new Configuration().LoadSection<MyApplication>();
 
 config.Build.Date.ShouldEqual(DateTime.Parse("10/25/1985"));
 config.Build.DeployTarget.ShouldEqual(Target.Dev);
@@ -59,7 +59,7 @@ config.Build.Version.ShouldEqual("0.0.0.0");
 If you want to override the default section name convention, you have two options. First, you can pass a section name into the `Load()` or `LoadSection()` methods like so:
 
 ```csharp
-var config = SimpleConfig.Configuration.Load<MyApplication>("myapp");
+var config = Configuration.Load<MyApplication>("myapp");
 ```
 
 ```xml
@@ -109,10 +109,18 @@ public class BuildDependency { ... }
 </configuration>
 ```
 
+You can also load arbitrary config files by path as follows:
+
+```csharp
+var config = new Configuration(configPath: "path/to/my.config")
+
+var config = Configuration.Load<MyApplication>(configPath: "path/to/my.config");
+```
+
 SimpleConfig uses [Bender](/mikeobrien/Bender) for deserialization. Bender configuration can be passed in to customize deserialization. For example, you can specify custom readers to handle the deserialization of certian data types:
 
 ```csharp
-var config = new SimpleConfig.Configuration(x => x
+var config = new Configuration(x => x
             .AddReader<List<string>>((options, property, node) => node.Value.Split(',').ToList()))
         .LoadSection<MyApplication>();
 ```

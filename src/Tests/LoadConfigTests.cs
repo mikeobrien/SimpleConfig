@@ -36,6 +36,15 @@ namespace Tests
         }
 
         [Test]
+        public void should_load_config_from_path()
+        {
+            var config = new Configuration(configPath: "alt.config").LoadSection<Application>("alt");
+            config.Build.Date.ShouldEqual(DateTime.Parse("10/25/1985"));
+            config.Build.DeployTarget.ShouldEqual(Target.Dev);
+            config.Build.Version.ShouldEqual("0.0.0.0");
+        }
+
+        [Test]
         public void should_load_config_from_named_section()
         {
             var config = new Configuration().LoadSection<Application>("app");
