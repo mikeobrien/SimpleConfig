@@ -77,7 +77,7 @@ nuspec :createSpec => :prepPackage do |nuspec|
    nuspec.working_directory = packagePath
    nuspec.output_file = nuspecFilename
    nuspec.tags = "configuration xml"
-   nuspec.dependency "Bender", "1.0.12.0"
+   nuspec.dependency "Bender", "2.0.0.0"
 end
 
 nugetpack :createPackage => :createSpec do |nugetpack|
