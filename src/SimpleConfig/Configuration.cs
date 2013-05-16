@@ -18,7 +18,7 @@ namespace SimpleConfig
         {
             _configPath = configPath;
             options = options ?? (x => { });
-            _deserializer = new Lazy<Deserializer>(() => Deserializer.Create(x => options(x.IgnoreCase().IgnoreTypeElementNames())));
+            _deserializer = new Lazy<Deserializer>(() => Deserializer.Create(x => options(x.IgnoreCase().IgnoreTypeXmlElementNames())));
         }
 
         public static T Load<T>(string sectionName = null, Action<DeserializerOptions> options = null, string configPath = null)
@@ -36,7 +36,7 @@ namespace SimpleConfig
                 typeof(Section).FullName + "'.");
             if (section == null) throw new ConfigurationErrorsException(
                 "Could not find configuration section '" + sectionName + "'.");
-            return _deserializer.Value.Deserialize<T>(((Section)section).Element);
+            return _deserializer.Value.DeserializeXml<T>(((Section)section).Element);
         }
 
         private object GetSection(string sectionName, string configPath)

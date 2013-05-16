@@ -81,7 +81,7 @@ namespace Tests
         public void should_load_config_with_custom_options()
         {
             var config = new Configuration(x => x
-            .AddReader<List<string>>((options, property, node) => node.Value.Split(',').ToList())).LoadSection<Application>("custom");
+            .AddReader<List<string>>(y => y.Node.Value.Split(',').ToList())).LoadSection<Application>("custom");
             var dependencies = config.Build.Dependencies;
             dependencies.Count.ShouldEqual(2);
             dependencies[0].ShouldEqual("this");
