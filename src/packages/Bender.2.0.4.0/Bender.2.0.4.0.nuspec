@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>Bender</id>
-    <version>2.0.2.0</version>
+    <version>2.0.4.0</version>
     <title>Bender</title>
     <authors>Mike O'Brien</authors>
     <owners>Mike O'Brien</owners>
@@ -10,10 +10,10 @@
     <projectUrl>https://github.com/mikeobrien/Bender</projectUrl>
     <iconUrl>https://github.com/mikeobrien/Bender/raw/master/misc/logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Xml De/Serialization for .NET</description>
-    <summary>Xml De/Serialization for .NET</summary>
+    <description>Xml and json de/serialization for .NET</description>
+    <summary>Xml and json de/serialization for .NET</summary>
     <language>en-US</language>
-    <tags>xml serialization deserialization deserializer serializer</tags>
+    <tags>xml json serialization deserialization deserializer serializer</tags>
     <references>
       <reference file="Bender.dll" />
     </references>
