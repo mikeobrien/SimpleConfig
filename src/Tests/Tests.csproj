@@ -33,9 +33,13 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Bender, Version=2.0.6.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Bender, Version=2.0.11.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Bender.2.0.6.0\lib\Bender.dll</HintPath>
+      <HintPath>..\packages\Bender.2.0.11.0\lib\Bender.dll</HintPath>
+    </Reference>
+    <Reference Include="Flexo, Version=1.0.19.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\flexo.1.0.19.0\lib\Flexo.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>

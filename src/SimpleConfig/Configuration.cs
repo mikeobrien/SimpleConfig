@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Configuration;
 using Bender;
+using Bender.Configuration;
 
 namespace SimpleConfig
 {
@@ -14,14 +15,15 @@ namespace SimpleConfig
         private readonly string _configPath;
         private readonly Lazy<Deserializer> _deserializer;
 
-        public Configuration(Action<DeserializerOptions> options = null, string configPath = null)
+        public Configuration(Action<DeserializerOptionsDsl> options = null, string configPath = null)
         {
             _configPath = configPath;
             options = options ?? (x => { });
-            _deserializer = new Lazy<Deserializer>(() => Deserializer.Create(x => options(x.IgnoreCase().IgnoreTypeXmlElementNames())));
+            _deserializer = new Lazy<Deserializer>(() => Deserializer.Create(x => x.Deserialization(
+                y => options(y.IgnoreNameCase().IgnoreArrayItemNames().IgnoreRootName()))));
         }
 
-        public static T Load<T>(string sectionName = null, Action<DeserializerOptions> options = null, string configPath = null)
+        public static T Load<T>(string sectionName = null, Action<DeserializerOptionsDsl> options = null, string configPath = null)
         {
             return new Configuration(options, configPath).LoadSection<T>(sectionName);
         }

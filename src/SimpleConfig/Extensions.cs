@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Xml.Serialization;
-using Bender;
+using Bender.Collections;
 
 namespace SimpleConfig
 {
@@ -15,8 +15,8 @@ namespace SimpleConfig
 
         public static string GetXmlTypeName(this Type type)
         {
-            var xmlType = type.GetCustomAttribute<XmlTypeAttribute>();
-            return xmlType != null ? xmlType.TypeName : null;
+            var xmlType = type.GetCustomAttributes(typeof(XmlTypeAttribute), true).FirstOrDefault();
+            return xmlType != null ? xmlType.As<XmlTypeAttribute>().TypeName : null;
         }
     }
 }
