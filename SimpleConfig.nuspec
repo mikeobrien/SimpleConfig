@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+   <metadata>
+      <id>SimpleConfig</id>
+      <version>0.0.0.0</version>
+      <title>Simple Config</title>
+      <authors>Mike O'Brien</authors>
+      <description>Simple Configuration for .NET.</description>
+      <releaseNotes />
+      <copyright />
+      <language>en-US</language>
+      <licenseUrl>https://github.com/mikeobrien/SimpleConfig/blob/master/LICENSE</licenseUrl>
+      <projectUrl>https://github.com/mikeobrien/SimpleConfig</projectUrl>
+      <owners>Mike O'Brien</owners>
+      <summary>Simple Configuration for .NET.</summary>
+      <iconUrl>https://github.com/mikeobrien/SimpleConfig/raw/master/misc/logo.png</iconUrl>
+      <tags>configuration xml</tags>
+      <dependencies>
+         <dependency id="Bender" version="2.0.0" />
+      </dependencies>
+   </metadata>
+   <files>
+      <file src="src\SimpleConfig\bin\Release\SimpleConfig.*" target="lib" />
+   </files>
+</package>
