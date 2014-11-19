@@ -1,6 +1,8 @@
 SimpleConfig
 =============
 
+[![Nuget](http://img.shields.io/nuget/v/SimpleConfig.svg)](http://www.nuget.org/packages/SimpleConfig/) [![Nuget downloads](http://img.shields.io/nuget/dt/SimpleConfig.svg)](http://www.nuget.org/packages/SimpleConfig/)
+
 SimpleConfig makes custom configuration in .NET much easier. Instead of wiring up and loading custom sections via the heavy and complicated API under the `System.Configuration` namespace, SimpleConfig allows you to load the section directly into a POCO graph via xml deserialization.
 
 Install
