@@ -19,7 +19,4 @@
          <dependency id="Bender" version="3.0.0" />
       </dependencies>
    </metadata>
-   <files>
-      <file src="src\SimpleConfig\bin\Release\SimpleConfig.*" target="lib" />
-   </files>
 </package>
