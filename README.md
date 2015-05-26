@@ -119,7 +119,7 @@ var config = new Configuration(configPath: "path/to/my.config")
 var config = Configuration.Load<MyApplication>(configPath: "path/to/my.config");
 ```
 
-SimpleConfig uses [Bender](/mikeobrien/Bender) for deserialization. Bender configuration can be passed in to customize deserialization. For example, you can specify custom readers to handle the deserialization of certian data types:
+SimpleConfig uses [Bender](https://github.com/mikeobrien/Bender) for deserialization. Bender configuration can be passed in to customize deserialization. For example, you can specify custom readers to handle the deserialization of certian data types:
 
 ```csharp
 var config = new Configuration(x => x
@@ -127,9 +127,9 @@ var config = new Configuration(x => x
         .LoadSection<MyApplication>();
 ```
 
-Check out the [Bender page](/mikeobrien/Bender) for more details on deserialization configuration.
+Check out the [Bender page](https://github.com/mikeobrien/Bender) for more details on deserialization configuration.
 
 Props
 ------------
 
-Thanks to [@grummle](/grummle) for the idea. Thanks to [JetBrains](http://www.jetbrains.com/) for providing OSS licenses! 
+Thanks to [@grummle](https://github.com/grummle) for the idea. Thanks to [JetBrains](http://www.jetbrains.com/) for providing OSS licenses! 
