@@ -122,9 +122,8 @@ var config = Configuration.Load<MyApplication>(configPath: "path/to/my.config");
 SimpleConfig uses [Bender](https://github.com/mikeobrien/Bender) for deserialization. Bender configuration can be passed in to customize deserialization. For example, you can specify custom readers to handle the deserialization of certain data types:
 
 ```csharp
-var config = new Configuration(x => x
-            .AddReader<List<string>>((options, property, node) => node.Value.Split(',').ToList()))
-        .LoadSection<MyApplication>();
+var config = Configuration.Load<Configuration>(options: x => 
+	x.AddReader<List<string>>(y => y.ToString().Split(',').ToList()));
 ```
 
 Check out the [Bender page](https://github.com/mikeobrien/Bender) for more details on deserialization configuration.
