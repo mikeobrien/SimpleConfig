@@ -1,7 +1,7 @@
 SimpleConfig
 =============
 
-[![Nuget](http://img.shields.io/nuget/v/SimpleConfig.svg?style=flat)](http://www.nuget.org/packages/SimpleConfig/) [![Nuget downloads](http://img.shields.io/nuget/dt/SimpleConfig.svg?style=flat)](http://www.nuget.org/packages/SimpleConfig/) [![TeamCity Build Status](https://img.shields.io/teamcity/http/build.mikeobrien.net/s/simpleconfig.svg?style=flat)](http://build.mikeobrien.net/viewType.html?buildTypeId=simpleconfig&guest=1)
+[![Nuget](http://img.shields.io/nuget/v/SimpleConfig.svg?style=flat)](http://www.nuget.org/packages/SimpleConfig/) [![TeamCity Build Status](https://img.shields.io/teamcity/http/build.mikeobrien.net/s/simpleconfig.svg?style=flat)](http://build.mikeobrien.net/viewType.html?buildTypeId=simpleconfig&guest=1)
 
 SimpleConfig makes custom configuration in .NET much easier. Instead of wiring up and loading custom sections via the heavy and complicated API under the `System.Configuration` namespace, SimpleConfig allows you to load the section directly into a POCO graph via xml deserialization.
 
