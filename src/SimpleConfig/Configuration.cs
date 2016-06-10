@@ -7,7 +7,7 @@ namespace SimpleConfig
 {
     public interface IConfiguration
     {
-        T LoadSection<T>(string sectionName = null);
+        T LoadSection<T>(string sectionName = null, Action<DeserializerOptionsDsl> options = null);
     }
 
     public class Configuration : IConfiguration
@@ -15,20 +15,20 @@ namespace SimpleConfig
         private readonly string _configPath;
         private readonly Lazy<Deserializer> _deserializer;
 
-        public Configuration(Action<DeserializerOptionsDsl> options = null, string configPath = null)
+        public Configuration(Action<OptionsDsl> options = null, string configPath = null)
         {
             _configPath = configPath;
             options = options ?? (x => { });
-            _deserializer = new Lazy<Deserializer>(() => Deserializer.Create(x => x.Deserialization(
-                y => options(y.IgnoreNameCase().IgnoreArrayItemNames().IgnoreRootName()))));
+            _deserializer = new Lazy<Deserializer>(() => Deserializer.Create(x => options(x.IncludePublicFields()
+                .Deserialization(y => y.IgnoreNameCase().IgnoreArrayItemNames().IgnoreRootName()))));
         }
 
-        public static T Load<T>(string sectionName = null, Action<DeserializerOptionsDsl> options = null, string configPath = null)
+        public static T Load<T>(Action<OptionsDsl> options = null, string sectionName = null, string configPath = null)
         {
             return new Configuration(options, configPath).LoadSection<T>(sectionName);
         }
 
-        public T LoadSection<T>(string sectionName = null)
+        public T LoadSection<T>(string sectionName = null, Action<DeserializerOptionsDsl> options = null)
         {
             sectionName = sectionName ?? typeof(T).GetXmlTypeName() ?? typeof(T).Name.ToCamelCase();
             var section = GetSection(sectionName, _configPath);

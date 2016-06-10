@@ -80,8 +80,9 @@ namespace Tests
         [Test]
         public void should_load_config_with_custom_options()
         {
-            var config = new Configuration(x => x
-            .AddReader((v, s, t, o) => v.ToString().Split(',').ToList())).LoadSection<Application>("custom");
+            var config = new Configuration(x => x.Deserialization(y => 
+                y.AddReader((v, s, t, o) => v.ToString().Split(',').ToList())))
+                .LoadSection<Application>("custom");
             var dependencies = config.Build.Dependencies;
             dependencies.Count.ShouldEqual(2);
             dependencies[0].ShouldEqual("this");
