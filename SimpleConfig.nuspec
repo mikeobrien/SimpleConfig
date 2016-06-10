@@ -16,7 +16,7 @@
       <iconUrl>https://github.com/mikeobrien/SimpleConfig/raw/master/misc/logo.png</iconUrl>
       <tags>configuration xml</tags>
       <dependencies>
-         <dependency id="Bender" version="3.0.0" />
+         <dependency id="Bender" version="3.0.43" />
       </dependencies>
    </metadata>
 </package>
